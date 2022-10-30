@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="my-3 text-center p-2 container" style="width: 50%">
+    <p class="m-3 p-2 bg-secondary text-light border-rad">All Student</p>
+  </div>
+
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Sr. No.</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ student.first_name }}</td>
+          <td>{{ student.last_name }}</td>
+          <td>{{ student.email }}</td>
+          <td>
+            <button
+              class="btn btn-primary"
+              routerLink="/edit-student/{{ student._id }}"
+            >
+              Edit
+            </button>
+            |
+            <button class="btn btn-danger" (click)="deleteStudent(student)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
